@@ -38,8 +38,11 @@ export class RecipeInfoComponent implements OnInit {
 
   handleAddIngredient(recipeId, ingredientId, quantity) {
     this.newDishesService.postIngredient(recipeId, ingredientId, quantity)
-    .subscribe((res) => {this.response = res});
+    this.recipe.ingredients.forEach((element)=>{
+      if (element.ingredientId._id === ingredientId) {
+        element.quantity = parseInt(element.quantity) + parseInt(quantity)
+      }
+    });
   }
-
 
 }

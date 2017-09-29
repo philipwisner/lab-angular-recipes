@@ -5,6 +5,13 @@
   <h1>{{recipe.name}}</h1>
   <p><img src="{{recipe.image}}" alt=""></p>
   <p>{{recipe.description}}</p>
+  <p>INGREDIENTS</p>
+    <p *ngIf="!recipe.ingredients.length >= 1">You haven't added any ingredients</p>
+    <p *ngIf="recipe.ingredients.length >= 1">You have ingredients</p>
+  <div *ngFor="let ingredient of recipe.ingredients">
+    <p>{{ingredient.ingredientId.name}}</p>
+    <p>{{ingredient.quantity}}</p>
+  </div>
 </div>
 
   <div *ngFor="let ingredient of ingredients">
