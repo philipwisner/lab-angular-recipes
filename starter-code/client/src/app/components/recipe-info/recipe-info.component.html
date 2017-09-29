@@ -6,10 +6,10 @@
   <p><img src="{{recipe.image}}" alt=""></p>
   <p>{{recipe.description}}</p>
 
+<button (click)="getIngredients()">Add to Recipe</button>
   <div *ngFor="let ingredient of ingredients">
     <p>{{ingredient.name}}</p>
     <img src="{{ingredient.image}}" alt="">
     <p>{{ingredient.description}}</p>
-    <button (click)="getIngredients()">Add Ingredients</button>
   </div>
 </div>
