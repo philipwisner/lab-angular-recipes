@@ -8,13 +8,15 @@ import { DishesService } from '../../service/dishes.service';
   styleUrls: ['./recipe-info.component.css']
 })
 export class RecipeInfoComponent implements OnInit {
-  recipeId: string;
+  recipeId: string
+  recipe: any
 
   constructor(private newDishesService: DishesService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
     this.recipeId = params['id'];
+    this.newDishesService.getRecipe(this.recipeId).subscribe((recipe) => this.recipe = recipe);
     });
   }
 
