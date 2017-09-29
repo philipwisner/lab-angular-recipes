@@ -12,6 +12,7 @@ export class RecipeInfoComponent implements OnInit {
   recipeId: string;
   recipe: any;
   ingredients: any;
+  response: any;
 
   constructor(
      private newDishesService: DishesService,
@@ -34,5 +35,11 @@ export class RecipeInfoComponent implements OnInit {
   getIngredients() {
     this.newIngredientsService.getIngredients().subscribe((newIngredientsService) => this.ingredients = newIngredientsService);
   }
+
+  handleAddIngredient(recipeId, ingredientId, quantity) {
+    this.newDishesService.postIngredient(recipeId, ingredientId, quantity)
+    .subscribe((res) => {this.response = res});
+  }
+
 
 }

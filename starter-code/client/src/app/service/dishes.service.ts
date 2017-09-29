@@ -18,4 +18,9 @@ export class DishesService {
     .map((res) => res.json());
   }
 
+  postIngredient(recipeId, ingredientId, quantity) {
+    return this.http.post(`http://localhost:3000/api/dishes/${recipeId}/ingredients/${ingredientId}/add`, {quantity: Number(quantity)})
+    .map((res) => res.json())
+  }
+
 }

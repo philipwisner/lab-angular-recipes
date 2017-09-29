@@ -5,11 +5,12 @@
   <h1>{{recipe.name}}</h1>
   <p><img src="{{recipe.image}}" alt=""></p>
   <p>{{recipe.description}}</p>
+</div>
 
-<button (click)="getIngredients()">Add to Recipe</button>
   <div *ngFor="let ingredient of ingredients">
     <p>{{ingredient.name}}</p>
     <img src="{{ingredient.image}}" alt="">
     <p>{{ingredient.description}}</p>
+    <p>quantity<input type="number" #quantity></p>
+    <button (click)="handleAddIngredient(recipe._id, ingredient._id,  quantity.value)">Add to Recipe</button>
   </div>
-</div>
