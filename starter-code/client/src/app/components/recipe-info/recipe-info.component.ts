@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DishesService } from '../../service/dishes.service';
+import { IngredientsService } from '../../service/ingredients.service';
 
 @Component({
   selector: 'app-recipe-info',
@@ -8,16 +9,30 @@ import { DishesService } from '../../service/dishes.service';
   styleUrls: ['./recipe-info.component.css']
 })
 export class RecipeInfoComponent implements OnInit {
-  recipeId: string
-  recipe: any
+  recipeId: string;
+  recipe: any;
+  ingredients: any;
 
-  constructor(private newDishesService: DishesService, private route: ActivatedRoute) { }
+  constructor(
+     private newDishesService: DishesService,
+     private newIngredientsService: IngredientsService,
+     private route: ActivatedRoute
+   ) { }
 
   ngOnInit() {
+    this.getRecipe()
+    this.getIngredients();
+  }
+
+  getRecipe() {
     this.route.params.subscribe((params) => {
     this.recipeId = params['id'];
     this.newDishesService.getRecipe(this.recipeId).subscribe((recipe) => this.recipe = recipe);
     });
+  }
+
+  getIngredients() {
+    this.newIngredientsService.getIngredients().subscribe((newIngredientsService) => this.ingredients = newIngredientsService);
   }
 
 }

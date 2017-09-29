@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule ,Routes } from "@angular/router";
 
 import { DishesService } from './service/dishes.service';
+import { IngredientsService } from './service/ingredients.service';
 
 import { AppComponent } from './app.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
@@ -28,7 +29,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [DishesService],
+  providers: [DishesService, IngredientsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
