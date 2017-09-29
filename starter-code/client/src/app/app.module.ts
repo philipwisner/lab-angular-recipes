@@ -8,16 +8,19 @@ import { DishesService } from './service/dishes.service';
 
 import { AppComponent } from './app.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
+import { RecipeInfoComponent } from './components/recipe-info/recipe-info.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: RecipesComponent },
+  { path: 'home/:id', component: RecipeInfoComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     RecipesComponent,
+    RecipeInfoComponent,
   ],
   imports: [
     BrowserModule,

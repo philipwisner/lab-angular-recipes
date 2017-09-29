@@ -1,3 +1,6 @@
-<p>
-  recipes works!
-</p>
+<h1>Recipe List</h1>
+<button (click)="getRecipes()">Get Recipes</button>
+<div *ngFor="let recipe of recipeList">
+<p>{{recipe.name}}</p>
+<p>{{recipe.image}}</p>
+<p><a [routerLink]="['/home', recipe._id]">More Info</a></p>

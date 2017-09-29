@@ -9,7 +9,7 @@ export class DishesService {
   constructor(private http: Http) { }
 
   getRecipes() {
-    return this.http.get('localhost/recipe-app')
+    return this.http.get('http://localhost:3000/api/dishes')
     .map((res) => res.json());
   }
 
